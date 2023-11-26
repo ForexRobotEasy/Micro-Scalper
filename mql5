@@ -1,0 +1,110 @@
+
+//+------------------------------------------------------------------+
+//|                                             Forex Robot Easy Team|
+//|                                       http://www.forexroboteasy.com|
+//+------------------------------------------------------------------+
+
+//+------------------------------------------------------------------+
+//|                                               Micro Scalper      |
+//|                                 Terms of Reference for Writing Code|
+//|                           Maximum length: 1500-2000 characters      |
+//+------------------------------------------------------------------+
+
+// Initializing variables
+double riskPercentage = 1.5; // Risk percentage per trade
+double stopLoss = 20; // Stop loss in pips
+double lotSize = AccountBalance() * riskPercentage / stopLoss; // Calculating lot size based on risk percentage and stop loss
+int magicNumber = 1234; // Unique identifier for the EA
+int slippage = 5; // Slippage in pips
+
+//+------------------------------------------------------------------+
+//|                      Expert Advisor Start Function                |
+//+------------------------------------------------------------------+
+int start()
+{
+   // Calculate price action and tick data volatility
+   double volatility = CalculateVolatility();
+
+   // Check if volatility is within the desired range
+   if (volatility > 0.5 && volatility < 1.0)
+   {
+      // Identify trading opportunities
+      bool isOpportunity = IdentifyOpportunity();
+
+      if (isOpportunity)
+      {
+         // Place a buy order
+         bool buyOrderPlaced = PlaceOrder(OP_BUY, lotSize, stopLoss, slippage, magicNumber);
+
+         if (buyOrderPlaced)
+         {
+            // Monitor the trade
+            MonitorTrade();
+         }
+      }
+   }
+
+   // Return 0 to indicate successful execution
+   return (0);
+}
+//+------------------------------------------------------------------+
+
+//+------------------------------------------------------------------+
+//|                     Function to Calculate Volatility              |
+//+------------------------------------------------------------------+
+double CalculateVolatility()
+{
+   // Code to calculate price action and tick data volatility
+   double volatility = 0.75; // Sample value for demonstration
+
+   return (volatility);
+}
+//+------------------------------------------------------------------+
+
+//+------------------------------------------------------------------+
+//|                     Function to Identify Trading Opportunity      |
+//+------------------------------------------------------------------+
+bool IdentifyOpportunity()
+{
+   // Code to identify trading opportunities based on volatility and other indicators
+   bool isOpportunity = true; // Sample value for demonstration
+
+   return (isOpportunity);
+}
+//+------------------------------------------------------------------+
+
+//+------------------------------------------------------------------+
+//|                      Function to Place an Order                   |
+//+------------------------------------------------------------------+
+bool PlaceOrder(int orderType, double lotSize, double stopLoss, int slippage, int magicNumber)
+{
+   // Code to place an order with the specified parameters
+   bool orderPlaced = true; // Sample value for demonstration
+
+   return (orderPlaced);
+}
+//+------------------------------------------------------------------+
+
+//+------------------------------------------------------------------+
+//|                      Function to Monitor the Trade                |
+//+------------------------------------------------------------------+
+void MonitorTrade()
+{
+   // Code to monitor the trade, including exit strategies and risk management
+   double currentProfit = 50; // Sample value for demonstration
+   double takeProfit = currentProfit * 2;
+
+   // Modify the take profit level
+   ModifyTrade(TP, takeProfit, magicNumber);
+}
+//+------------------------------------------------------------------+
+
+//+------------------------------------------------------------------+
+//|                      Function to Modify a Trade                   |
+//+------------------------------------------------------------------+
+void ModifyTrade(int modifierType, double modifierValue, int magicNumber)
+{
+   // Code to modify the trade based on the modifier type and value
+   // ...
+}
+//+------------------------------------------------------------------+
